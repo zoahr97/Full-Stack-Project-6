@@ -1,0 +1,71 @@
+/* ================================================================
+   trips.css – עמוד הטיולים
+   ================================================================ */
+
+.trips-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #fff8f0, #fef3e2);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--clr-border);
+}
+
+.trips-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; color: var(--clr-text);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.trips-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 6px 16px; border-radius: 999px;
+  font-size: .82rem; font-weight: 600;
+  border: 2px solid var(--clr-border);
+  background: #fff; color: var(--clr-text-2);
+  transition: var(--transition);
+}
+.filter-btn:hover  { background: var(--clr-surface-2); transform: translateY(-1px); }
+.filter-btn.active { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; border-color: transparent; box-shadow: 0 3px 10px rgba(231,76,60,.3); }
+
+.trip-list { display: flex; flex-direction: column; gap: 14px; }
+
+.trip-card {
+  background: #fff;
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.trip-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--clr-primary-lt);
+}
+
+/* פס צבעוני שמאלי */
+.trip-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #e74c3c, #f39c12);
+  border-radius: 4px 0 0 4px;
+}
+
+.trip-icon {
+  width: 54px; height: 54px; flex-shrink: 0;
+  background: linear-gradient(135deg, #fef3e2, #fdebd0);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  border: 2px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+}
+.trip-info    { flex: 1; }
+.trip-title   { font-family: var(--font-heading); font-size: 1.5rem; color: var(--clr-text); margin-bottom: 3px; }
+.trip-dest    { font-size: .88rem; color: var(--clr-primary-lt); font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.trip-dates   { font-size: .8rem; color: var(--clr-text-3); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+.trip-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }

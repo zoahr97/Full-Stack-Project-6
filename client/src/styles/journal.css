@@ -1,0 +1,120 @@
+/* ================================================================
+   journal.css – עמוד יומן מסעות
+   ================================================================ */
+
+.journal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #f0fff4, #e8f8f5);
+  border-radius: var(--radius-lg);
+  border: 2px solid #a9dfbf;
+  position: relative; overflow: hidden;
+}
+.journal-header::after {
+  content: '📖';
+  position: absolute; right: 16px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 4rem; opacity: .12;
+}
+
+.journal-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; color: var(--clr-text);
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* רשימת רשומות */
+.entry-list { display: flex; flex-direction: column; gap: 20px; }
+
+.entry-card {
+  background: #fff;
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.entry-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+/* קישוט פינה עליונה ימנית */
+.entry-card::after {
+  content: '✍️';
+  position: absolute; top: 14px; right: 16px;
+  font-size: 1.2rem; opacity: .15;
+}
+
+/* פס ירוק שמאלי */
+.entry-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #27ae60, #2980b9);
+  border-radius: 4px 0 0 4px;
+}
+
+.entry-card-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px;
+}
+.entry-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem; color: var(--clr-text);
+  cursor: pointer; flex: 1; line-height: 1.4;
+}
+.entry-card-title:hover { color: var(--clr-secondary); }
+
+.entry-location {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .83rem; color: var(--clr-accent);
+  font-weight: 700; margin-top: 4px;
+  background: linear-gradient(135deg, #fef9e7, #fdebd0);
+  padding: 2px 10px; border-radius: 999px;
+  border: 1px solid #f0d9a8;
+}
+.entry-card-body {
+  font-size: .93rem; color: var(--clr-text-2);
+  margin: 12px 0; line-height: 1.8;
+  border-left: 3px solid var(--clr-border);
+  padding-left: 14px;
+}
+.entry-card-id      { font-size: .75rem; color: var(--clr-text-3); white-space: nowrap; background: var(--clr-surface-2); padding: 2px 8px; border-radius: 999px; }
+.entry-card-actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+
+/* ── אזור Memories ───────────────────────────────────────── */
+.memories-section {
+  margin-top: 20px;
+  border-top: 2px dashed var(--clr-border);
+  padding-top: 16px;
+}
+.memories-header {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 12px;
+}
+.memories-title {
+  font-size: .9rem; font-weight: 700;
+  color: var(--clr-text-2);
+  display: flex; align-items: center; gap: 6px;
+}
+.memories-title::before { content: '💬'; }
+
+.memory-item {
+  background: linear-gradient(135deg, #f8f9fa, #f0f4ff);
+  border-radius: var(--radius-md);
+  padding: 12px 16px; margin-bottom: 10px;
+  font-size: .88rem;
+  border: 1.5px solid #e8eaf6;
+  position: relative;
+}
+.memory-item::before {
+  content: '"';
+  position: absolute; top: 6px; left: 10px;
+  font-size: 2rem; color: var(--clr-secondary);
+  opacity: .15; font-family: Georgia, serif;
+  line-height: 1;
+}
+.memory-meta    { font-weight: 700; color: var(--clr-secondary); font-size: .83rem; }
+.memory-email   { color: var(--clr-text-3); font-size: .78rem; margin-left: 6px; }
+.memory-body    { color: var(--clr-text); margin-top: 5px; line-height: 1.6; padding-left: 4px; }
+.memory-actions { display: flex; gap: 6px; margin-top: 8px; }

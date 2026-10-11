@@ -1,0 +1,62 @@
+/* ================================================================
+   admin.css – עמוד ניהול
+   ================================================================ */
+
+.admin-page {}
+
+.admin-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; color: var(--clr-text);
+  margin-bottom: 26px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #2c1810, #4a1942);
+  border-radius: var(--radius-lg);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--clr-border);
+}
+
+.admin-table { width: 100%; border-collapse: collapse; background: #fff; }
+.admin-table th {
+  background: linear-gradient(135deg, #2c1810, #c0392b);
+  color: #fff; padding: 14px 18px;
+  text-align: left; font-size: .84rem;
+  font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+}
+.admin-table th:first-child { border-radius: 0; }
+.admin-table td { padding: 13px 18px; border-bottom: 1.5px solid var(--clr-border); font-size: .88rem; color: var(--clr-text); }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: linear-gradient(135deg, #fff8f0, #fef3e2); }
+.admin-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* כרטיס פעילות */
+.activity-card {
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 26px 30px; margin-top: 24px;
+  box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.activity-card::before {
+  content: '📊';
+  position: absolute; right: 20px; top: 20px;
+  font-size: 3rem; opacity: .08;
+}
+.activity-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem; color: var(--clr-text);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.activity-row   { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1.5px solid var(--clr-border); font-size: .9rem; }
+.activity-row:last-child { border-bottom: none; }
+.activity-label { color: var(--clr-text-3); font-weight: 500; }
+.activity-value { color: var(--clr-text); font-weight: 700; }

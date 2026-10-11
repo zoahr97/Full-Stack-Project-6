@@ -1,0 +1,145 @@
+/* ================================================================
+   global.css – TripDiary – עיצוב צבעוני עם אווירת טיולים
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --clr-bg:          #f8f4ef;
+  --clr-surface:     #ffffff;
+  --clr-surface-2:   #fef6e8;
+  --clr-primary:     #c0392b;       /* אדום-חם כמו שקיעה */
+  --clr-primary-lt:  #e74c3c;
+  --clr-primary-dk:  #922b21;
+  --clr-secondary:   #2980b9;       /* כחול שמיים */
+  --clr-accent:      #f39c12;       /* כתום שמש */
+  --clr-accent-2:    #27ae60;       /* ירוק יער */
+  --clr-gold:        #f1c40f;
+  --clr-success:     #27ae60;
+  --clr-danger:      #e74c3c;
+  --clr-text:        #2c1810;
+  --clr-text-2:      #5d4037;
+  --clr-text-3:      #a1887f;
+  --clr-border:      #e8d5c4;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-sm: 0 2px 8px rgba(44,24,16,.08);
+  --shadow-md: 0 6px 24px rgba(44,24,16,.13);
+  --shadow-lg: 0 12px 40px rgba(44,24,16,.18);
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans:    'Inter', 'Segoe UI', system-ui, sans-serif;
+  --transition: 180ms ease;
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { font-size: 16px; scroll-behavior: smooth; }
+body  {
+  font-family: var(--font-sans);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  /* טקסטורת נייר עדינה */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c0392b' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+a               { color: var(--clr-secondary); text-decoration: none; }
+a:hover         { text-decoration: underline; }
+button          { font-family: inherit; cursor: pointer; border: none; outline: none; transition: var(--transition); }
+input, textarea, select { font-family: inherit; font-size: 1rem; outline: none; transition: var(--transition); }
+
+/* ── כפתורים ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 22px; border-radius: var(--radius-md);
+  font-size: .92rem; font-weight: 600; letter-spacing: .02em;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--clr-primary-lt), var(--clr-primary));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(231,76,60,.35);
+}
+.btn-primary:hover  { background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dk)); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(231,76,60,.4); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--clr-primary-lt);
+  border: 2px solid var(--clr-border);
+}
+.btn-ghost:hover { background: var(--clr-surface-2); border-color: var(--clr-primary-lt); }
+
+.btn-danger       { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; box-shadow: 0 3px 10px rgba(231,76,60,.3); }
+.btn-danger:hover { transform: translateY(-1px); }
+.btn-success       { background: linear-gradient(135deg, #2ecc71, #27ae60); color: #fff; }
+.btn-success:hover { transform: translateY(-1px); }
+.btn-sm { padding: 6px 14px; font-size: .82rem; }
+
+/* ── תגיות סטטוס ─────────────────────────────────────────── */
+.badge           { display: inline-flex; align-items: center; gap: 4px; padding: 3px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.badge-planned   { background: linear-gradient(135deg, #d6eaf8, #aed6f1); color: #1a5276; }
+.badge-ongoing   { background: linear-gradient(135deg, #fef9e7, #fdebd0); color: #784212; }
+.badge-completed { background: linear-gradient(135deg, #d5f5e3, #a9dfbf); color: #145a32; }
+.badge-blocked   { background: linear-gradient(135deg, #fadbd8, #f5b7b1); color: #7b241c; }
+
+/* ── ספינר טעינה ─────────────────────────────────────────── */
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--clr-border);
+  border-top-color: var(--clr-primary-lt);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin: 48px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── הודעות ──────────────────────────────────────────────── */
+.error-msg   { color: #922b21; background: linear-gradient(135deg, #fdedec, #fadbd8); border: 1.5px solid #f1948a; border-radius: var(--radius-md); padding: 12px 16px; font-size: .9rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.success-msg { color: #1e8449; background: linear-gradient(135deg, #eafaf1, #d5f5e3); border: 1.5px solid #82e0aa; border-radius: var(--radius-md); padding: 12px 16px; font-size: .9rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.empty-state { text-align: center; color: var(--clr-text-3); padding: 64px 0; font-size: 1.1rem; }
+.empty-state::before { display: block; font-size: 3rem; margin-bottom: 12px; content: '🌍'; }
+
+/* ── Modal ───────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(44,24,16,.55);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200; padding: 20px;
+  animation: fadeIn .15s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: var(--clr-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 40px;
+  width: 100%; max-width: 500px;
+  animation: scaleIn .2s ease;
+  border-top: 4px solid var(--clr-primary-lt);
+}
+@keyframes scaleIn { from { transform: scale(.93); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-title { font-family: var(--font-heading); font-size: 1.4rem; color: var(--clr-text); margin-bottom: 22px; }
+.modal-form  { display: flex; flex-direction: column; gap: 14px; }
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  padding: 11px 16px;
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: .93rem;
+  background: #fffaf7;
+  color: var(--clr-text);
+  resize: vertical;
+}
+.modal-form input:focus,
+.modal-form select:focus,
+.modal-form textarea:focus { border-color: var(--clr-primary-lt); background: #fff; box-shadow: 0 0 0 3px rgba(231,76,60,.1); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }

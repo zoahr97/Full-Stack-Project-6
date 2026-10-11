@@ -1,0 +1,94 @@
+/* ================================================================
+   app.css – layout ראשי, navbar, פאנל info
+   ================================================================ */
+.app-layout { display: flex; flex-direction: column; min-height: 100vh; }
+
+.app-content {
+  flex: 1; max-width: 920px; width: 100%;
+  margin: 0 auto; padding: 36px 24px;
+}
+
+/* ── Navbar ──────────────────────────────────────────────── */
+.navbar {
+  background: linear-gradient(135deg, #1a0a00 0%, #2c1810 50%, #c0392b 100%);
+  color: #fff; padding: 0 28px; height: 66px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 4px 20px rgba(44,24,16,.4);
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 2px solid rgba(243,156,18,.3);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #f39c12, #f1c40f, #f39c12, transparent);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem; font-weight: 700;
+  color: #fff; letter-spacing: .04em;
+  margin-right: auto;
+  display: flex; align-items: center; gap: 8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  text-decoration: none;
+}
+
+.navbar-brand::after {
+  content: '✨';
+  font-size: .8rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+/* כפתורי navbar */
+.nav-btn {
+  padding: 8px 16px; border-radius: var(--radius-md);
+  font-size: .86rem; font-weight: 600;
+  color: rgba(255,255,255,.82);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+  transition: var(--transition);
+  text-decoration: none;  
+}
+
+.nav-btn:hover  { background: rgba(255,255,255,.18); color: #fff; border-color: rgba(255,255,255,.25); transform: translateY(-1px); text-decoration: none; }
+.nav-btn.active { background: rgba(243,156,18,.25); color: #fef3c7; border-color: rgba(243,156,18,.4); text-decoration: none; }
+.nav-btn-danger       { color: #fca5a5; }
+.nav-btn-danger:hover { background: rgba(231,76,60,.3); color: #fee2e2; border-color: rgba(231,76,60,.3); }
+.nav-btn-admin        { color: #fde68a; }
+.nav-btn-admin:hover  { background: rgba(241,196,15,.2); color: #fef3c7; }
+
+/* ── פאנל Info ───────────────────────────────────────────── */
+.info-panel {
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 30px; margin-bottom: 30px;
+  box-shadow: var(--shadow-md);
+  display: flex; align-items: center; gap: 20px;
+  animation: slideDown .25s ease;
+  position: relative; overflow: hidden;
+}
+.info-panel::before {
+  content: '🌍';
+  position: absolute; right: 20px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem; opacity: .06;
+}
+@keyframes slideDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:none; } }
+
+.info-avatar {
+  width: 58px; height: 58px; flex-shrink: 0;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: #fff; font-weight: 700;
+  box-shadow: 0 4px 15px rgba(231,76,60,.35);
+  border: 3px solid #fff;
+}
+.info-details  { flex: 1; }
+.info-name     { font-family: var(--font-heading); font-size: 1.2rem; color: var(--clr-text); margin-bottom: 6px; }
+.info-row      { font-size: .85rem; color: var(--clr-text-3); margin-bottom: 2px; }
+.info-row span { color: var(--clr-text-2); font-weight: 600; }
