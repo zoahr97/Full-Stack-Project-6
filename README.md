@@ -1,0 +1,1 @@
+Full-stack web application built with React, Node.js, Express, and MySQL. Implements a RESTful API for user authentication and CRUD management of todos, posts, and comments, with protected user-specific data and a React client interface.
